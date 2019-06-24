@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/custom-elements/custom-elements.min.js",
+              "node_modules/@clr/icons/clr-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -56,6 +61,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
             }
           }
         },
@@ -67,6 +80,10 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-clarity:build:production"
+            },
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "angular-clarity:build:hmr"
             }
           }
         },
@@ -119,6 +136,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-clarity"
 }
